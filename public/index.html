@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <title>NodeJS Starter Application</title>
+    <title>Debate Presidencial | El Comercio | Ecuador 2017</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="/lib/flot/jquery.flot.js"></script>
+    <script src="/lib/flot/jquery.flot.pie.js"></script>
+    <script src="/lib/debate.js"></script>
+	<script language="Javascript" type="text/javascript">
+		(function($, window, document) {
+		   $(function() {
+		     // The DOM is ready!
+		     getTweetCount();
+   			});
+	   // The rest of the code goes here!
+
+  		}(window.jQuery, window, document));
+	</script>
   </head>
-
   <body>
-    <table>
-      <tr>
-        <td style= "width:30%;">
-          <img class = "newappIcon" src="images/newapp-icon.png">
-        </td>
-        <td>
-          <h1 id="message">Hello World!</h1>
-          <p class='description'></p> Thanks for creating a <span class = "blue">NodeJS Starter Application</span>.
-        </td>
-      </tr>
-    </table>
+	<div id="tv-overlay"></div>
+	<div id="tweet-count-charts">
+		<div id="Bucaram" class="pie-placeholder"></div>
+		<div id="Espinel" class="pie-placeholder"></div>
+		<div id="Lasso" class="pie-placeholder"></div>
+		<div id="Moncayo" class="pie-placeholder"></div>
+		<div id="Moreno" class="pie-placeholder"></div>
+		<div id="Pesantez" class="pie-placeholder"></div>
+		<div id="Viteri" class="pie-placeholder"></div>
+		<div id="Zuquilanda" class="pie-placeholder"></div>
+		<div class="pie-title">Abdal&aacute; Bucaram</div>
+		<div class="pie-title">Iv&aacute;n Espinel</div>
+		<div class="pie-title">Guillermo Lasso</div>
+		<div class="pie-title">Paco Moncayo</div>
+		<div class="pie-title">Lenin Moreno</div>
+		<div class="pie-title">Washington Pes&aacute;ntez</div>
+		<div class="pie-title">Cynthia Viteri</div>
+		<div class="pie-title">Patricio Zuquilanda</div>
+	</div>
   </body>
-
 </html>
