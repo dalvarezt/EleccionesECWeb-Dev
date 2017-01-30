@@ -83,14 +83,10 @@ app.get("/getTweetCount", function(request, response) {
 });
 
 app.get("/popularTweet", function(request, response){
-	if(! request.query.candidato ) {
-		console.error("Error: parámetro \"candidato\" no específicado");
-		response.status(400);
-		response.write("Error: parámetro \"candidato\" no específicado");
-		response.send();
-		return;
+	var qry="SELECT * FROM POPULARTWEETS";
+	if(request.query.candidato) {
+		qry+=" WHERE CANDIDATO ='" + request.query.candidato +"'";
 	}
-	var candidato = request.query.candidato;
 	pool.open(cn, function(err_con, db){
 		if(err_con) {
 			console.error("Error getting connection from pool: ", err_con);
@@ -100,11 +96,11 @@ app.get("/popularTweet", function(request, response){
 			response.send();
 			return;
 		}
-		db.query("SELECT * FROM POPULARTWEETS WHERE CANDIDATO ='" + candidato + "'", function(err_qry, data){
+		db.query(qry, function(err_qry, data){
 			if(err_qry){
 				console.error("Error ejecutando query: ", err_qry);
 				response.status(500);
-				response.write("No se pudo obtener tweets populares para el candidato: " + candidato);
+				response.write("No se pudo obtener tweets populares");
 				response.send();
 			} else {
 				response.status(200);
