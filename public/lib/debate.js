@@ -91,7 +91,7 @@ function paintPopularTweets() {
 		"success": function(data) {
 			var container = $("#TweetPanel");
 			for (var i = 0; i < data.length; i++) {
-				var idt = data[i].TWEETID.split(":")[1];
+				var idt = data[i].IDTWEET.split(":")[1];
 				container.html("<div class=\"tweet\" id=\"" + idt + "\"></div>");
 			}
 			var tweets = jQuery(".tweet");
