@@ -90,10 +90,12 @@ function paintPopularTweets() {
 		"dataType": "json",
 		"success": function(data) {
 			var container = $("#TweetPanel");
+			var html="";
 			for (var i = 0; i < data.length; i++) {
-				var idt = data[i].IDTWEET.split(":")[1];
-				container.html("<div class=\"tweet\" id=\"" + idt + "\"></div>");
+				var idt = data[i].IDTWEET.split(":")[2];
+				html+="<div class=\"tweet\" id=\"" + idt + "\"></div>\n";
 			}
+			container.html(html);
 			var tweets = jQuery(".tweet");
 
 			jQuery(tweets).each(function(t, tweet) {
@@ -103,7 +105,7 @@ function paintPopularTweets() {
 				twttr.widgets.createTweet(
 					id, tweet, {
 						conversation: 'none', // or all
-						cards: 'hidden', // or visible 
+						cards: 'hidden', // or visible
 						linkColor: '#cc0000', // default is blue
 						theme: 'light' // or dark
 					});
