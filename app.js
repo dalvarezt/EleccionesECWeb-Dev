@@ -76,17 +76,18 @@ function arrangeTweetCount(data) {
 		totalRegistros=0;
 	for (var k in data) {
 		result[data[k].CANDIDATO] = [ {"label": "Positivo", "data": parseInt(data[k].POSITIVOS), "color":"#0eea57" },
-		  {"label":"Neutral", "data":parseInt(data[k].NEUTRAL), "color":"#6d6d6d"},
+		  //{"label":"Neutral", "data":parseInt(data[k].NEUTRAL), "color":"#6d6d6d"},
 			{"label":"Negativo", "data":parseInt(data[k].NEGATIVOS), "color":"#f44242" }
 
 		];
-		candidatos[data[k].CANDIDATO]=parseInt(data[k].TOTAL);
+		candidatos[data[k].CANDIDATO]=parseInt(data[k].POSITIVOS)+parseInt(data[k].NEGATIVOS);
 		totalRegistros++;
 
-		max = parseInt(data[k].TOTAL) >= max ? parseInt(data[k].TOTAL) : max;
+		max = candidatos[data[k].CANDIDATO] >= max ? candidatos[data[k].CANDIDATO]: max;
 
 	}
 	result["Info"] = { "RecordCount":totalRegistros, "MaxCount":max, "Candidatos":candidatos };
+
 	return result;
 }
 

@@ -14,7 +14,7 @@ body,html {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: 200px;
+    height: 220px;
     background-color: #ffffff;
 }
 .pie-placeholder {
@@ -29,6 +29,15 @@ body,html {
 	float: left;
 	text-align: center;
 	font-weight: bold;
+	color: black;
+}
+.tweet-count {
+	width:12.5%;
+	height:20px;
+	float: left;
+	text-align: center;
+	font-weight: normal;
+	font-size: 10px;
 	color: black;
 }
 a {

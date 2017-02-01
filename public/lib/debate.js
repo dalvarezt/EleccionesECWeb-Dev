@@ -75,6 +75,8 @@ function paintCharts(data) {
 		} else {
 			$.plot("#" + candidatos[i][0], defaultData, pieOptionsDefault);
 		}
+		var cont = $("#" +candidatos[i][0] + "-tc" );
+		cont.html("<p>Total tweets: " + data.Info.Candidatos[candidatos[i][0]] + "</p>");
 	}
 	setTimeout(getTweetCount, delay);
 }
