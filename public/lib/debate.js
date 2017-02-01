@@ -27,9 +27,10 @@ var pieOptions = {
 			innerRadius: .35,
 			label: {
 				show: true,
+				radius: .75,
 				formatter: function(label, series) {
-					return "<div style=\"font-size:8pt;text-align:center;padding:2px;color:" + series.color + "\">" +
-						label + "<br />" + series.data[0][1] +
+					return "<div style=\"font-size:8pt;text-align:center;padding:2px;color:black\">" +
+						 parseInt(series.percent) + "%" +
 						"</div>";
 				}
 			}
@@ -43,7 +44,7 @@ var pieOptionsDefault = {
 	series: {
 		pie: {
 			show: true,
-			radius: .75,
+			radius: .001,
 			innerRadius: .35,
 			label: {
 				show: true,
@@ -61,8 +62,15 @@ var pieOptionsDefault = {
 };
 
 function paintCharts(data) {
+	var max = data.Info.MaxCount;
+
 	for (var i = 0; i < candidatos.length; i++) {
 		if (data[candidatos[i][0]]) {
+			tweetCount = data.Info.Candidatos[candidatos[i][0]];
+			pieOptions.series.pie.radius = tweetCount/max<.20 ? .20 : tweetCount/(parseInt(max)+1) ;
+			pieOptions.series.pie.innerRadius = pieOptions.series.pie.radius*.45;
+			pieOptions.series.pie.label.radius = (pieOptions.series.pie.radius*1.15 >=1 ? .9999 : pieOptions.series.pie.radius*1.15);
+			console.log(candidatos[i][0] + " - " + pieOptions.series.pie.radius );
 			$.plot("#" + candidatos[i][0], data[candidatos[i][0]], pieOptions);
 		} else {
 			$.plot("#" + candidatos[i][0], defaultData, pieOptionsDefault);
@@ -79,6 +87,7 @@ function getTweetCount() {
 		"success": paintCharts,
 		"error": function(result, status) {
 			console.log(status + " " + result);
+			setTimeout(getTweetCount, delay);
 		}
 	});
 }
