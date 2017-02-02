@@ -76,11 +76,11 @@ function arrangeTweetCount(data) {
 		totalRegistros=0;
 	for (var k in data) {
 		result[data[k].CANDIDATO] = [ {"label": "Positivo", "data": parseInt(data[k].POSITIVOS), "color":"#0eea57" },
-		  //{"label":"Neutral", "data":parseInt(data[k].NEUTRAL), "color":"#6d6d6d"},
+		    {"label":"Neutral", "data":parseInt(data[k].NEUTRAL), "color":"#6d6d6d"},
 			{"label":"Negativo", "data":parseInt(data[k].NEGATIVOS), "color":"#f44242" }
 
 		];
-		candidatos[data[k].CANDIDATO]=parseInt(data[k].POSITIVOS)+parseInt(data[k].NEGATIVOS);
+		candidatos[data[k].CANDIDATO]=parseInt(data[k].POSITIVOS)+parseInt(data[k].NEGATIVOS)+parseInt(data[k].NEUTRAL);
 		totalRegistros++;
 
 		max = candidatos[data[k].CANDIDATO] >= max ? candidatos[data[k].CANDIDATO]: max;
