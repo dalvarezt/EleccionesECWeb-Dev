@@ -27,7 +27,7 @@ app.listen(appEnv.port, '0.0.0.0', function() {
 	// print a message when the server starts listening
 	console.log("server starting on " + appEnv.url);
 });
-/*
+
 var testValue={"Bucaram":[
 		{"label":"Positivo","data":22,"color":"#0eea57"},
 		{"label":"Neutral","data":12,"color":"#666666"},
@@ -53,7 +53,7 @@ var testValue={"Bucaram":[
 		{"label":"Neutral","data":0,"color":"#666666"},
 		{"label":"Negativo","data":4,"color":"#f44242"}],
 	"Info":{"RecordCount":6,"MaxCount":1406,"Candidatos":{"Bucaram":104,"Lasso":502,"Moncayo":424,"Moreno":1406,"Viteri":665,"Zuquilanda":5}}}
-*/
+
 //instance DashDB driver
 var ibmdb = require("ibm_db");
 //TODO: Read from environment variable
@@ -94,10 +94,10 @@ function arrangeTweetCount(data) {
 app.get("/getTweetCount", function(request, response) {
 	pool.open(cn, function(err_conn, db) {
 		if (err_conn) {
-			console.error("Error getting connection from pool: "+ err_conn);
+			console.error("Error getting connection from pool", err_conn);
 			response.status(500);
 			response.setHeader("Content-Type", "text/plain");
-			response.write(err_conn);
+			response.write(err_conn.toString());
 			response.send();
 			return;
 		}

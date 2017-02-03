@@ -23,13 +23,13 @@ var pieOptions = {
 	series: {
 		pie: {
 			show: true,
-			radius: .75,
-			innerRadius: .35,
+			radius: 0.85,
+			innerRadius: 0.85*0.45,
 			label: {
 				show: true,
-				radius: .75,
+				radius: 0.85*.725,
 				formatter: function(label, series) {
-					return "<div style=\"font-size:8pt;text-align:center;padding:2px;color:black\">" +
+					return "<div class=\"donut-label\">" +
 						 parseInt(series.percent) + "%" +
 						"</div>";
 				}
@@ -66,19 +66,16 @@ function paintCharts(data) {
 
 	for (var i = 0; i < candidatos.length; i++) {
 		if (data[candidatos[i][0]]) {
-			tweetCount = data.Info.Candidatos[candidatos[i][0]];
-			//pieOptions.series.pie.radius = tweetCount/max<.20 ? .20 : tweetCount/(parseInt(max)+1) ;
-			pieOptions.series.pie.radius = 80 ;
-			pieOptions.series.pie.innerRadius = pieOptions.series.pie.radius*.45;
-			//pieOptions.series.pie.label.radius = (pieOptions.series.pie.radius*1.15 >=1 ? .9999 : pieOptions.series.pie.radius*1.15);
-			pieOptions.series.pie.label.radius = 55;
-			console.log(candidatos[i][0] + " - " + pieOptions.series.pie.radius );
-			$.plot("#" + candidatos[i][0], data[candidatos[i][0]], pieOptions);
+			var tweetCount = data.Info.Candidatos[candidatos[i][0]];
+			var placeholder = $("#" + candidatos[i][0])
+			$.plot(placeholder, data[candidatos[i][0]], pieOptions);
+			//var cont = $("#" +candidatos[i][0] + "-tc" );
+			//cont.html("<p>" + data.Info.Candidatos[candidatos[i][0]] + "<br>Tweets</p>");
+			placeholder.append("<div class=\"tweet-count\">" + tweetCount + "<br />Tweets</div>");
 		} else {
 			$.plot("#" + candidatos[i][0], defaultData, pieOptionsDefault);
 		}
-		var cont = $("#" +candidatos[i][0] + "-tc" );
-		cont.html("<p>" + data.Info.Candidatos[candidatos[i][0]] + "<br>tweets</p>");
+
 	}
 	setTimeout(getTweetCount, delay);
 }

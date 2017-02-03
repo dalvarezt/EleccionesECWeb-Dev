@@ -1,65 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Debate Presidencial | El Comercio | Ecuador 2017</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="stylesheets/style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="/lib/flot/jquery.flot.js"></script>
-    <script src="/lib/flot/jquery.flot.pie.js"></script>
-    <script src="/lib/debate.js"></script>
-	<script language="Javascript" type="text/javascript">
-		(function($, window, document) {
-		   $(function() {
-		     // The DOM is ready!
-		     getTweetCount();
-   			});
-	   // The rest of the code goes here!
+<head>
+  <title>Debate Presidencial | El Comercio | Ecuador 2017</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="/lib/flot/jquery.flot.js"></script>
+  <script src="/lib/flot/jquery.flot.pie.js"></script>
+  <script src="/lib/debate.js"></script>
+  <script language="Javascript" type="text/javascript">
+  (function($, window, document) {
+    $(function() {
+      // The DOM is ready!
+      getTweetCount();
+      $(window).resize(function(){
+        getTweetCount();
+      });
+    });
+    // The rest of the code goes here!
 
-  		}(window.jQuery, window, document));
-	</script>
-  </head>
-  <body>
-	<div id="tv-overlay"></div>
-	<div id="tweet-count-charts">
-	<div id="vacio" class="contenedor-logo-izq"><img class="logo" src="/images/logoIBM.png" align="right"/></div>
-	<div id="vacio" class="contenedor-titulo">ANÁLISIS DE SENTIMIENTO SOBRE MENSAJES DE TWITTER</div>
-    <div id="LogoAL" class="contenedor-logo"><img class="logo" src="/images/LOGOambosladosFinal.jpg" align="left"/></div>
-	<div id="separadorIBM" class="pie-placeholder"></div>     
+  }(window.jQuery, window, document));
+  </script>
+</head>
+<body>
+  <div id="tv-overlay"></div>
+  <div id="tweet-count-charts">
+    <div id="vacio" class="contenedor-logo-izq"><img class="logo" src="/images/LOGOambosladosFinal.jpg" align="right"/></div>
+    <div id="vacio" class="contenedor-titulo">ANÁLISIS DE SENTIMIENTO SOBRE MENSAJES DE TWITTER</div>
+    <div id="LogoAL" class="contenedor-logo-izq">&nbsp;</div>
+    <div id="separadorIBM" class="pie-placeholder"></div>
     <div id="Espinel" class="pie-placeholder"></div>
-    <div id="Moncayo" class="pie-placeholder"></div>    
+    <div id="Moncayo" class="pie-placeholder"></div>
     <div id="Bucaram" class="pie-placeholder"></div>
-	<div id="Lasso" class="pie-placeholder"></div>
-	<div id="Zuquilanda" class="pie-placeholder"></div>
-	<div id="Pesantez" class="pie-placeholder"></div>		
-	<div id="Viteri" class="pie-placeholder"></div>
+    <div id="Lasso" class="pie-placeholder"></div>
+    <div id="Zuquilanda" class="pie-placeholder"></div>
+    <div id="Pesantez" class="pie-placeholder"></div>
+    <div id="Viteri" class="pie-placeholder"></div>
     <div id="Moreno" class="pie-placeholder"></div>
-
-    <div id="separadorAL" class="pie-placeholder"></div> 
-    <div id="Espinel-tc" class="tweet-count1"></div>    
+    <div id="separadorAL" class="pie-placeholder"></div>
+    <!--div id="Espinel-tc" class="tweet-count1"></div>
     <div id="Moncayo-tc" class="tweet-count2"></div>
     <div id="Bucaram-tc" class="tweet-count3"></div>
     <div id="Lasso-tc" class="tweet-count4"></div>
     <div id="Zuquilanda-tc" class="tweet-count5"></div>
     <div id="Pesantez-tc" class="tweet-count6"></div>
     <div id="Viteri-tc" class="tweet-count7"></div>
-    <div id="Moreno-tc" class="tweet-count8"></div>
+    <div id="Moreno-tc" class="tweet-count8"></div-->
 
-    
-    
+
+
     <div class="pie-title"></div>
-		<div class="pie-title">Iv&aacute;n Espinel</div>
-		<div class="pie-title">Paco Moncayo</div>		
-		<div class="pie-title">Abdal&aacute; Bucaram</div>
-		<div class="pie-title">Guillermo Lasso</div>
-		<div class="pie-title">Patricio Zuquilanda<br></div>
-		<div class="pie-title">Washington Pes&aacute;ntez</div>
-		<div class="pie-title">Cynthia Viteri</div>
-		<div class="pie-title">Len&iacute;n Moreno</div>
+    <div class="pie-title">Iv&aacute;n Espinel</div>
+    <div class="pie-title">Paco Moncayo</div>
+    <div class="pie-title">Abdal&aacute; Bucaram</div>
+    <div class="pie-title">Guillermo Lasso</div>
+    <div class="pie-title">Patricio Zuquilanda<br></div>
+    <div class="pie-title">Washington Pes&aacute;ntez</div>
+    <div class="pie-title">Cynthia Viteri</div>
+    <div class="pie-title">Len&iacute;n Moreno</div>
 
-		<div class="pie-title"></div>
-	</div>
-  </body>
+    <div class="pie-title"></div>
+  </div>
+</body>
 </html>
